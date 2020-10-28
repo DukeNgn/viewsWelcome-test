@@ -1,6 +1,7 @@
 {
 	"name": "viewswelcome-test",
 	"displayName": "viewsWelcome-test",
+	"publisher": "DukeNgn",
 	"description": "Test viewsWelcome contribution point",
 	"version": "0.0.1",
 	"engines": {
@@ -14,10 +15,15 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [
+		"viewsWelcome": [
 			{
-				"command": "viewswelcome-test.helloWorld",
-				"title": "Hello World"
+				"view": "runConfigurations",
+				"contents": "[from extension] No configurations found."
+			},
+			{
+				"view": "scm",
+				"contents": "[from extension] In order to use git features, you can open a folder containing a git repository or clone from a URL.\n[Open Folder](command:vscode.openFolder)\n[Clone Repository](command:git.clone)\nTo learn more about how to use git and source control in VS Code [read our docs](https://aka.ms/vscode-scm).",
+				"when": "config.git.enabled && git.state == initialized && workbenchState == empty"
 			}
 		]
 	},
